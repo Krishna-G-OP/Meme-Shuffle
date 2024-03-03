@@ -1,4 +1,4 @@
-// Function to fetch a random meme from the Meme Generator API
+// Function to fetch a random meme from the Meme API
 async function fetchRandomMeme() {
   try {
     const response = await fetch("https://meme-api.herokuapp.com/gimme");
