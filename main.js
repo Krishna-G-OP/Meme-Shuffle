@@ -19,3 +19,4 @@ async function generateRandomMeme() {
             memeContainer.appendChild(memeImage);
 }
 generateMemeBtn.addEventListener("click", generateRandomMeme);
+generateRandomMeme();
