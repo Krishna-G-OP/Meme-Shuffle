@@ -10,8 +10,8 @@ async function generateRandomMeme() {
     const password = "divynoone";
 
     // Example caption texts
-    const caption1 = "This is the top text";
-    const caption2 = "This is the bottom text";
+    const caption1 = "God";
+    const caption2 = "Humans";
 
     const memeURL = `https://api.imgflip.com/caption_image?template_id=${randomMeme.id}&username=${username}&password=${password}&text0=${encodeURIComponent(caption1)}&text1=${encodeURIComponent(caption2)}`;
 
