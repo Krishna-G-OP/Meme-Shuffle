@@ -1,25 +1,16 @@
-async function getTopMemes() {
+async function generateRandomMeme() {
     const response = await fetch('https://api.imgflip.com/get_memes');
     const data = await response.json();
     const memes = data.data.memes;
+    const randomIndex = Math.floor(Math.random() * memes.length);
+    const randomMeme = memes[randomIndex];
 
-    // Sort memes based on their popularity, assuming 'popularity' is a field in the meme data
-    const topMemes = memes.sort((a, b) => b.popularity - a.popularity).slice(0, 10); // Get top 10 memes
-
-    return topMemes;
-}
-
-async function displayTopMemes() {
-    const topMemes = await getTopMemes();
+    const memeImage = document.createElement("img");
+    memeImage.src = randomMeme.url;
 
     const memeContainer = document.getElementById("memeContainer");
     memeContainer.innerHTML = "";
-
-    topMemes.forEach(meme => {
-        const memeImage = document.createElement("img");
-        memeImage.src = meme.url;
-        memeContainer.appendChild(memeImage);
-    });
+    memeContainer.appendChild(memeImage);
 }
 
-displayTopMemes();
+generateRandomMeme();
