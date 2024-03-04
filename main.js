@@ -12,7 +12,7 @@ const updateDetails = (url, title, author) => {
 };
 
 const generateMeme = () => {
-  fetch("https://meme-api.herokuapp.com/gimme/memes")
+  fetch("https://api.imgflip.com/get_memes")
     .then((response) => response.json())
     .then((data) => {
       updateDetails(data.url, data.title, data.author);
