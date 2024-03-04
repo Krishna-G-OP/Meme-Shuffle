@@ -5,7 +5,7 @@ async function generateRandomMeme() {
             const randomIndex = Math.floor(Math.random() * memes.length);
             const randomMeme = memes[randomIndex];
 
-            const memeURL = `https://api.imgflip.com/caption_image?template_id=${randomMeme.id}&username=your_username&password=your_password`;
+            const memeURL = `https://api.imgflip.com/caption_image?template_id=${randomMeme.id}&username=divy_123&password=divynoone`;
             // Replace 'your_username' and 'your_password' with your Imgflip API credentials
 
             const response2 = await fetch(memeURL, { method: 'POST' });
