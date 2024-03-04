@@ -1,24 +1,22 @@
-const generateMemeBtn = document.querySelector(
-  ".meme-generator .generate-meme-btn"
-);
-const memeImage = document.querySelector(".meme-generator img");
-const memeTitle = document.querySelector(".meme-generator .meme-title");
-const memeAuthor = document.querySelector(".meme-generator .meme-author");
+async function generateRandomMeme() {
+    const response = await fetch('https://api.imgflip.com/get_memes');
+    const data = await response.json();
+    const memes = data.data.memes;
+    const randomIndex = Math.floor(Math.random() * memes.length);
+    const randomMeme = memes[randomIndex];
 
-const updateDetails = (url, title, author) => {
-  memeImage.setAttribute("src", url);
-  memeTitle.innerHTML = title;
-  memeAuthor.innerHTML = `Meme by: ${author}`;
-};
+    const memeURL = `https://api.imgflip.com/caption_image?template_id=${randomMeme.id}&username=your_username&password=your_password`;
+    // Replace 'your_username' and 'your_password' with your Imgflip API credentials
 
-const generateMeme = () => {
-  fetch("https://api.imgflip.com/get_memes")
-    .then((response) => response.json())
-    .then((data) => {
-      updateDetails(data.url, data.title, data.author);
-    });
-};
+    const response2 = await fetch(memeURL, { method: 'POST' });
+    const memeData = await response2.json();
 
-generateMemeBtn.addEventListener("click", generateMeme);
+    const memeImage = document.createElement("img");
+    memeImage.src = memeData.data.url;
 
-generateMeme();
+    const memeContainer = document.getElementById("memeContainer");
+    memeContainer.innerHTML = "";
+    memeContainer.appendChild(memeImage);
+}
+generateMemeBtn.addEventListener("click", generateRandomMeme);
+generateRandomMeme();
