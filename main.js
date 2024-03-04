@@ -18,5 +18,5 @@ async function generateRandomMeme() {
             memeContainer.innerHTML = "";
             memeContainer.appendChild(memeImage);
 }
-generateMemeBtn.addEventListener("click", generateRandomMeme);
+
 generateRandomMeme();
