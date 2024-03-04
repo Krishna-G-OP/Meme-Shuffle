@@ -24,4 +24,4 @@ This project is licensed under the [Apache 2.0](LICENSE).
 
 ## Acknowledgements
 
-- Special thanks to D3vd for providing the api of memes used in this project.
+- Special thanks to divy for solving some backend issues.
